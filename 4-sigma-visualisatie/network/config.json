@@ -1,0 +1,53 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "",
+    "link": "",
+    "text": ""
+  },
+  "text": {
+    "more": "De personen kunnen verder opgedeeld worden via de group selector tot geslacht.\nMannen zijn roze en vrouwen zijn groen. Familiebanden worden in het blauw uitgedrukt en correspondenties in het rood",
+    "intro": "Dit is een visualisatie van het netwerk van Guido Gezelle. \nHet toont wie van de correspondenten van Guido Gezelle heeft gecorrespondeerd met elkaar\nen wie van de correspondenten familie is",
+    "title": ""
+  },
+  "legend": {
+    "edgeLabel": "Famileband of Correspondentie",
+    "colorLabel": "",
+    "nodeLabel": "Persoon"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": "geslacht",
+    "hoverBehavior": "default"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": false,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "defaultEdgeType": "curve",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#000",
+      "labelThreshold": 10,
+      "defaultLabelHoverColor": "#fff",
+      "fontStyle": "bold",
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 14
+    },
+    "graphProperties": {
+      "maxEdgeSize": 0.5,
+      "minEdgeSize": 0.2,
+      "minNodeSize": 1,
+      "maxNodeSize": 7
+    },
+    "mouseProperties": {
+      "maxRatio": 20,
+      "minRatio": 0.75
+    }
+  }
+}
