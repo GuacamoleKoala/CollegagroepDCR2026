@@ -68,75 +68,141 @@
             border-color: #AADDDD;
         }
 
-        /* Workflow Sectie */
+        /* Nieuwe Workflow Layout: Stappenplan */
         .main-content {
             background-color: #fafafa;
             padding: 80px 20px;
+            border-top: 1px solid #e0e0e0;
         }
 
-        .section-header {
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1.5px;
-            margin: 0;
-        }
-
-        /* Workflow Grid */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
+        .workflow-container {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .card {
-            background: #ffffff;
-            padding: 40px;
-            border: 1px solid #e0e0e0;
+        .step-block {
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            position: relative;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-left: 12px solid #AADDDD;
+            margin-bottom: 40px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
         }
 
-        .card:hover { 
-            border-color: #AADDDD;
-            transform: translateY(-5px);
+        .step-block:hover {
+            transform: translateX(5px);
+            border-left-color: #000000;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
         }
 
         .step-number {
             font-weight: 900;
-            font-size: 0.8rem;
-            background: #AADDDD;
-            padding: 4px 12px;
-            display: inline-block;
-            margin-bottom: 20px;
-            align-self: flex-start;
+            font-size: 1.2rem;
+            background: #000000;
+            color: #ffffff;
+            padding: 5px 15px;
+            letter-spacing: 1px;
         }
 
-        .card h3 { 
-            margin: 0 0 15px 0; 
-            font-size: 1.6rem; 
-            font-weight: 800;
+        .step-title {
+            font-size: 2rem;
+            font-weight: 900;
             text-transform: uppercase;
-            line-height: 1.1;
+            letter-spacing: -1px;
+            margin: 0;
+            color: #000000;
         }
 
-        .description {
+        .step-time {
+            color: #666;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        .step-description {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        /* Repo Files List */
+        .repo-files {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+        }
+
+        .repo-files h4 {
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid #d0d0d0;
+            text-decoration: none;
+            color: #000;
+            transition: all 0.2s;
+        }
+
+        .file-item:hover {
+            border-color: #AADDDD;
+            background: #f0f8f8;
+        }
+
+        .file-icon {
+            font-size: 1.5rem;
+            color: #AADDDD;
+        }
+
+        .file-item:hover .file-icon {
+            color: #000000;
+        }
+
+        .file-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .file-name {
+            font-weight: bold;
             font-size: 1rem;
-            color: #444;
-            margin-bottom: 25px;
-            flex-grow: 1;
         }
 
-        /* Code Block Styling */
+        .file-desc {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Code Block */
         .code-container {
             background: #111;
             color: #AADDDD;
@@ -145,61 +211,19 @@
             font-size: 0.85rem;
             margin-bottom: 20px;
             overflow-x: auto;
-            border-radius: 0;
-        }
-
-        /* Action Links */
-        .action-link {
-            background-color: #AADDDD;
-            color: #000000;
-            text-align: center;
-            padding: 15px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 15px;
-            transition: all 0.2s;
-            border: 2px solid #AADDDD;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .action-link:hover { 
-            background-color: #000000; 
-            color: #ffffff;
-            border-color: #000000;
-        }
-
-        .sub-manual {
-            font-size: 0.8rem;
-            color: #000000;
-            text-decoration: none;
-            border-bottom: 3px solid #AADDDD;
-            padding-bottom: 3px;
-            align-self: flex-start;
-            font-weight: 800;
-            text-transform: uppercase;
         }
 
         /* Interactive Viz Placeholder */
-        .viz-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
+        .viz-wrapper {
+            margin-top: 20px;
+            border: 2px solid #000;
         }
 
-        /* Knowledge Base / Footer */
+        /* Footer */
         .knowledge-base {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 60px auto 0 auto;
-            padding: 80px 40px;
+            padding: 60px 40px;
             background-color: #000000;
             color: #ffffff;
             text-align: center;
@@ -214,9 +238,9 @@
         }
 
         footer {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
             border-top: 1px solid #e0e0e0;
             text-align: center;
             font-size: 0.85rem;
@@ -225,7 +249,8 @@
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            .container { grid-template-columns: 1fr; }
+            .step-header { flex-direction: column; gap: 10px; }
+            .step-time { margin-left: 0; }
         }
     </style>
 </head>
@@ -235,97 +260,172 @@
         <h1>Workshop:<br>Wikidata naar Netwerk</h1>
         <div class="intro-text">
             <p>
-                In deze workshop voor de <strong>Collegagroep Digitale Collectieregistratie 2026</strong> leren we hoe we data uit Wikidata omzetten in betekenisvolle netwerkvisualisaties. We doorlopen de volledige keten: van SPARQL-queries en data opschoning tot Gephi-analyse en publicatie met Github.
+                Welkom bij de workshop voor de <strong>Collegagroep Digitale Collectieregistratie 2026</strong>. 
+                Vandaag leren we hoe we erfgoeddata (zoals die van Guido Gezelle) uit Wikidata omzetten in betekenisvolle netwerkvisualisaties. We doorlopen samen de 4 stappen uit de presentatie.
             </p>
         </div>
         <div class="cta-buttons">
-            <a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/" class="btn-black" target="_blank">
-                Guido Gezelle Leiddraad
+            <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/Meemoo.pdf" class="btn-black" target="_blank">
+                <i class="fas fa-file-pdf"></i> Slides Presentatie
             </a>
             <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/tree/main" class="btn-black" target="_blank">
-                Github Repository
+                <i class="fab fa-github"></i> Workshop Repository
             </a>
-            <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/Meemoo.pdf" class="btn-black" target="_blank">
-                <i class="fas fa-desktop"></i> Bekijk Presentatie
+            <a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/" class="btn-black" target="_blank">
+                <i class="fas fa-book"></i> Gezelle Leiddraad
             </a>
         </div>
     </header>
 
     <section class="main-content">
-        <div class="section-header">
-            <h2>De Workflow</h2>
-        </div>
-
-        <div class="container">
-            <div class="card">
-                <span class="step-number">STAP 01</span>
-                <h3>Data Bevragen (SPARQL)</h3>
-                <p class="description">We bevragen Wikidata met behulp van SPARQL Queries om te ontdekken wie gerelateerd is aan Guido Gezelle. Hiervoor gebruiken we de Wikidata Query Service of generatieve AI prompts.</p>
-                
+        <div class="workflow-container">
+            
+            <div class="step-block">
+                <div class="step-header">
+                    <span class="step-number">01</span>
+                    <h2 class="step-title">Wikidata Bevragen met SPARQL</h2>
+                    <span class="step-time"><i class="far fa-clock"></i> 30 min</span>
+                </div>
+                <p class="step-description">
+                    We starten bij de bron. We gebruiken de Wikidata Query Service om Linked Open Data rondom Guido Gezelle (of je eigen collectie) op te halen. Je kunt hiervoor zelf queries schrijven of generatieve AI om hulp vragen.
+                </p>
                 <div class="code-container">
+                    # Voorbeeld: Relaties van Guido Gezelle<br>
                     SELECT ?item ?itemLabel ?student ?studentLabel WHERE {<br>
                     &nbsp;&nbsp;?item wdt:P106 wd:Q36180 .<br>
                     &nbsp;&nbsp;?student wdt:P1066 ?item .<br>
                     &nbsp;&nbsp;SERVICE wikibase:label { bd:serviceParam wikibase:language "nl". }<br>
                     } LIMIT 100
                 </div>
-
-                <a href="https://query.wikidata.org/" class="action-link" target="_blank">Open Query Service</a>
-                <a href="https://w.wiki/HyLZ" class="sub-manual" target="_blank">Voorbeeldquery Wikidata</a>
+                <div class="repo-files">
+                    <h4>Handige links voor deze stap:</h4>
+                    <div class="file-grid">
+                        <a href="https://query.wikidata.org/" class="file-item" target="_blank">
+                            <i class="fas fa-search file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">Wikidata Query Service</span>
+                                <span class="file-desc">Voer je SPARQL query hier uit</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <span class="step-number">STAP 02</span>
-                <h3>Data Opschonen</h3>
-                <p class="description">In Excel, Spreadsheets of OpenRefine herstructureren we de ruwe datatabellen tot bruikbare bestanden: een bestand met <strong>Knopen (Nodes)</strong> en een bestand met de verbindingen of <strong>Randen (Edges)</strong>.</p>
-                
-                <div style="display: flex; gap: 10px; margin-bottom: 25px;">
-                    <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/nodes.csv" class="action-link" style="flex: 1; margin-bottom: 0;" target="_blank">Nodes.csv</a>
-                    <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/edges.csv" class="action-link" style="flex: 1; margin-bottom: 0;" target="_blank">Edges.csv</a>
+            <div class="step-block">
+                <div class="step-header">
+                    <span class="step-number">02</span>
+                    <h2 class="step-title">Data Opschonen</h2>
+                    <span class="step-time"><i class="far fa-clock"></i> 30 min</span>
+                </div>
+                <p class="step-description">
+                    Netwerksoftware vereist een specifieke structuur. We splitsen onze ruwe data op in twee bestanden: <strong>Nodes</strong> (de knopen/personen) en <strong>Edges</strong> (de randen/relaties). Loop je vast? Gebruik dan de opgeschoonde voorbeeldbestanden hieronder om direct verder te kunnen.
+                </p>
+                <div class="repo-files">
+                    <h4>Opgeschoonde bestanden (Inpikpunt):</h4>
+                    <div class="file-grid">
+                        <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/nodes.csv" class="file-item" target="_blank">
+                            <i class="fas fa-file-csv file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">nodes.csv</span>
+                                <span class="file-desc">Lijst van alle entiteiten/personen</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/edges.csv" class="file-item" target="_blank">
+                            <i class="fas fa-file-csv file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">edges.csv</span>
+                                <span class="file-desc">De verbindingen tussen de nodes</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-header">
+                    <span class="step-number">03</span>
+                    <h2 class="step-title">Visualiseren in Gephi</h2>
+                    <span class="step-time"><i class="far fa-clock"></i> 30 min</span>
+                </div>
+                <p class="step-description">
+                    We importeren de Nodes en Edges in Gephi. We passen het <em>ForceAtlas2</em> algoritme toe om het netwerk open te trekken en berekenen statistieken (zoals degree) om knopen de juiste grootte en kleur te geven.
+                </p>
+                <div class="repo-files">
+                    <h4>Gephi Projectbestand (Inpikpunt):</h4>
+                    <div class="file-grid">
+                        <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/GephiProject.gephi" class="file-item" target="_blank">
+                            <i class="fas fa-project-diagram file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">GephiProject.gephi</span>
+                                <span class="file-desc">Volledig gestyled Gephi-project</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-block">
+                <div class="step-header">
+                    <span class="step-number">04</span>
+                    <h2 class="step-title">Publiceren met Github</h2>
+                    <span class="step-time"><i class="far fa-clock"></i> 15 min</span>
+                </div>
+                <p class="step-description">
+                    Zodra het netwerk goed staat, exporteren we dit via de Sigma Exporter plugin. Om de website daarna naar je hand te zetten (titel, legende, layout), passen we de bestanden in de Github repository aan. <strong>Via Github Pages zetten we het online!</strong>
+                </p>
+                <div class="repo-files">
+                    <h4>Aan te passen bestanden in repo (/network):</h4>
+                    <div class="file-grid">
+                        <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/network/config.json" class="file-item" target="_blank">
+                            <i class="fas fa-code file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">config.json</span>
+                                <span class="file-desc">Pas hier titel, tekst en "maxEdgeSize" aan</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/network/index.html" class="file-item" target="_blank">
+                            <i class="fas fa-html5 file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">index.html</span>
+                                <span class="file-desc">HTML structuur van je visualisatie</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/network/main.js" class="file-item" target="_blank">
+                            <i class="fab fa-js file-icon"></i>
+                            <div class="file-details">
+                                <span class="file-name">main.js</span>
+                                <span class="file-desc">Javascript en zoekfunctionaliteiten</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
-                <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/tree/main" class="sub-manual" target="_blank">Vind bestanden in Repo</a>
-            </div>
-
-            <div class="card">
-                <span class="step-number">STAP 03</span>
-                <h3>Visualiseren in Gephi</h3>
-                <p class="description">We importeren de CSV-bestanden in Gephi voor de daadwerkelijke visuele analyse. We passen algoritmes (ForceAtlas2) toe en geven knopen een kleur en grootte gebaseerd op eigenschappen zoals geslacht en type verbinding.</p>
-                
-                <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/GephiProject.gephi" class="action-link" target="_blank">Download .Gephi Project</a>
-                
-                <a href="https://gephi.org/users/download/" class="sub-manual" target="_blank">Gephi Downloaden</a>
-            </div>
-
-            <div class="card">
-                <span class="step-number">STAP 04</span>
-                <h3>Publiceren met Github</h3>
-                <p class="description">Vanuit Gephi exporteren we de visualisatie via de Sigma Exporter plugin. Vervolgens hosten we deze map (netwerk) online op Github Pages voor een interactieve webervaring.</p>
-                
-                <div class="viz-wrapper" style="margin-bottom: 20px; border: 1px solid #e0e0e0;">
+                <div class="viz-wrapper">
                     <iframe 
                         src="https://guacamolekoala.github.io/CollegagroepDCR2026/network/" 
                         width="100%" 
-                        height="400px" 
+                        height="450px" 
                         style="border:none;" 
                         title="Collegagroep Netwerk Visualisatie">
                     </iframe>
                 </div>
-
-                <a href="https://guacamolekoala.github.io/CollegagroepDCR2026/network/" class="sub-manual" target="_blank">Bekijk Visualisatie in Volledig Scherm</a>
             </div>
+
         </div>
 
         <div class="knowledge-base">
-            <h3>Documentatie & Context</h3>
-            <p>Dit proces is gebaseerd op de methodiek die is toegepast binnen het Guido Gezelle project voor de ontsluiting van erfgoeddata en de Meemoo workshops.</p>
-            <a href="https://kennisbank.meemoo.be/" class="btn-black" style="background-color: #AADDDD; color: #000; border: none; padding: 20px 40px;">Naar Meemoo Kennisbank</a>
+            <h3>Meer weten?</h3>
+            <p>Wil je de achterliggende methodiek nalezen of andere erfgoed-tools ontdekken?</p>
+            <br>
+            <a href="https://kennisbank.meemoo.be/" class="btn-black" style="background-color: #AADDDD; color: #000; border: none; padding: 20px 40px; font-size: 1rem;">
+                Bezoek de Meemoo Kennisbank
+            </a>
         </div>
     </section>
 
     <footer>
-        <p><strong>Meemoo Collegagroep Digitale Collectieregistratie</strong></p>
-        <p>Workshop Netwerkvisualisatie &copy; 2026</p>
+        <p><strong>Meemoo - VLAAMS INSTITUUT VOOR HET ARCHIEF</strong></p>
+        <p>Collegagroep Digitale Collectieregistratie &copy; 2026</p>
     </footer>
 
 </body>
