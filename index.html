@@ -16,11 +16,33 @@
             line-height: 1.6;
         }
 
-        /* Hero Sectie */
+       /* Hero Sectie */
         header {
             max-width: 1000px;
             margin: 60px auto 40px auto;
             padding: 0 20px;
+            /* Flexbox voor tekst + afbeelding */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .header-image {
+            flex-shrink: 0;
+            margin-top: 10px;
+        }
+
+        .header-image img {
+            width: 280px; 
+            height: auto;
+            border: 1px solid #e0e0e0;
+            border-bottom: 15px solid #AADDDD; 
+            box-shadow: 10px 10px 0px #000000; 
         }
 
         h1 { 
