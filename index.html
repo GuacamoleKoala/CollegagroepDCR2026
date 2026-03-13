@@ -21,20 +21,20 @@
     max-width: 1000px;
     margin: 60px auto 40px auto;
     padding: 0 20px;
-    
-    /* Dit zorgt voor de magie: */
-    display: flex; 
-    justify-content: space-between; /* Tekst links, foto rechts */
-    align-items: flex-start;        /* Beiden netjes bovenaan uitlijnen */
-    gap: 40px;                      /* Ruimte tussen tekst en foto */
+    display: flex; /* Zet content en image naast elkaar */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
 }
 
 .header-content {
-    flex: 1; /* Laat de tekst alle beschikbare ruimte innemen */
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Dwingt titel, tekst en knoppen onder elkaar */
 }
 
 .header-image {
-    flex-shrink: 0; /* Voorkom dat de foto wordt platgedrukt */
+    flex-shrink: 0;
 }
 
 .header-image img {
@@ -304,28 +304,26 @@
 <body>
 
     <header>
+    <div class="header-content">
         <h1>Workshop:<br>Wikidata naar Netwerk</h1>
+        
         <div class="intro-text">
             <p>
                 Welkom bij de workshop voor de <strong>Collegagroep Digitale Collectieregistratie 2026</strong>. 
-                Vandaag leren we hoe we erfgoeddata (zoals die van Guido Gezelle) uit Wikidata omzetten in betekenisvolle netwerkvisualisaties. We doorlopen samen de 4 stappen uit de presentatie.
+                Vandaag leren we hoe we erfgoeddata uit Wikidata omzetten in netwerkvisualisaties.
             </p>
         </div>
+
         <div class="cta-buttons">
-            <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/blob/main/presentatie_collegagroepdcr_2026.pdf" class="btn-black" target="_blank">
-                <i class="fas fa-file-pdf"></i> Slides Presentatie
-            </a>
-            <a href="https://github.com/GuacamoleKoala/CollegagroepDCR2026/tree/main" class="btn-black" target="_blank">
-                <i class="fab fa-github"></i> Workshop Repository
-            </a>
-            <a href="https://guacamolekoala.github.io/DocumentationVisualisationsGuidoGezelle/" class="btn-black" target="_blank">
-                <i class="fas fa-book"></i> Gezelle Leiddraad
-            </a>
+            <a href="#" class="btn-black"><i class="fas fa-file-pdf"></i> Slides</a>
+            <a href="#" class="btn-black"><i class="fab fa-github"></i> Repository</a>
         </div>
-         <div class="header-image">
-            <img src="gezelle.jpg" alt="Portret Guido Gezelle">
-        </div>
-    </header>
+    </div>
+
+    <div class="header-image">
+        <img src="gezelle.jpg" alt="Portret Guido Gezelle">
+    </div>
+</header>
 
     <section class="main-content">
         <div class="workflow-container">
