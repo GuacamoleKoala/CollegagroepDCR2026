@@ -18,32 +18,31 @@
 
        /* Hero Sectie */
         header {
-            max-width: 1000px;
-            margin: 60px auto 40px auto;
-            padding: 0 20px;
-            /* Flexbox voor tekst + afbeelding */
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 40px;
-        }
+    max-width: 1000px;
+    margin: 60px auto 40px auto;
+    padding: 0 20px;
+    
+    /* Dit zorgt voor de magie: */
+    display: flex; 
+    justify-content: space-between; /* Tekst links, foto rechts */
+    align-items: flex-start;        /* Beiden netjes bovenaan uitlijnen */
+    gap: 40px;                      /* Ruimte tussen tekst en foto */
+}
 
-        .header-content {
-            flex: 1;
-        }
+.header-content {
+    flex: 1; /* Laat de tekst alle beschikbare ruimte innemen */
+}
 
-        .header-image {
-            flex-shrink: 0;
-            margin-top: 10px;
-        }
+.header-image {
+    flex-shrink: 0; /* Voorkom dat de foto wordt platgedrukt */
+}
 
-        .header-image img {
-            width: 280px; 
-            height: auto;
-            border: 1px solid #e0e0e0;
-            border-bottom: 15px solid #AADDDD; 
-            box-shadow: 10px 10px 0px #000000; 
-        }
+.header-image img {
+    width: 280px;
+    height: auto;
+    border-bottom: 15px solid #AADDDD;
+    box-shadow: 10px 10px 0px #000000;
+}
 
         h1 { 
             font-size: 3.5rem; 
