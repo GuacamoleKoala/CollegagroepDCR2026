@@ -1,0 +1,87 @@
+Prompt: “Ik wil een query bouwen met sparql taal om wikidata te bevragen. Ik wil alle relaties met personen die aan guido gezelle gekoppeld zijn. dit is zijn wikidata pagina: https://www.wikidata.org/wiki/Q336977”
+
+
+
+
+
+
+
+
+
+
+
+
+
+Gemini zei
+
+Dat is een uitstekend project! Guido Gezelle is een spilfiguur in de Nederlandstalige literatuur, dus zijn Wikidata-netwerk is behoorlijk uitgebreid (denk aan familieleden, leerlingen en collega-priesters).
+
+Om dit te doen in SPARQL, moeten we kijken naar relaties in twee richtingen: relaties die vanaf Gezelle vertrekken en relaties die naar hem wijzen.
+
+De SPARQL Query
+
+Je kunt de onderstaande code kopiëren en direct plakken in de Wikidata Query Service (WDQS).
+
+Codefragment
+
+
+
+SELECT ?person ?personLabel ?relatieLabel WHERE {
+
+  {
+
+    # Richting 1: Guido Gezelle -> heeft relatie met -> Persoon
+
+    wd:Q336977 ?p ?person .
+
+    ?person wdt:P31 wd:Q5 . # Filter: de ontvanger moet een mens zijn
+
+  }
+
+  UNION
+
+  {
+
+    # Richting 2: Persoon -> heeft relatie met -> Guido Gezelle
+
+    ?person ?p wd:Q336977 .
+
+    ?person wdt:P31 wd:Q5 . # Filter: de verzender moet een mens zijn
+
+  }
+
+
+
+  # Haal de namen van de personen en de namen van de relaties (properties) op
+
+  SERVICE wikibase:label { 
+
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],nl,en". 
+
+  }
+
+}
+
+
+
+Hoe deze query werkt
+
+Wikidata is gebaseerd op triples: een onderwerp, een eigenschap en een object. Je kunt het zien als een netwerk van knooppunten verbonden door lijnen.
+
+wd:Q336977: Dit is de unieke ID voor Guido Gezelle.
+
+?p: Dit is een variabele voor de eigenschap (bijv. "vader", "leerling van", "beïnvloed door").
+
+?person: Dit is de variabele voor de persoon aan de andere kant van de lijn.
+
+wdt:P31 wd:Q5: Deze regel is cruciaal. Hiermee zeggen we: "Ik wil alleen resultaten die een mens zijn." Zonder dit krijg je ook zaken als zijn geboorteplaats of zijn beroep terug, wat we hier niet willen.
+
+UNION: Omdat relaties twee kanten op kunnen gaan (Gezelle is de vader van X, óf Y is de leraar van Gezelle), voegen we beide scenario's samen.
+
+SERVICE wikibase:label: Dit zorgt ervoor dat je leesbare namen ziet (zoals "Stijn Streuvels") in plaats van alleen de Q-nummers.
+
+Tips voor je resultaten
+
+Dubbele resultaten: Je zult merken dat sommige mensen twee keer verschijnen. Dit komt omdat sommige relaties wederzijds zijn vastgelegd.
+
+Visualisatie: Klik in de Wikidata Query Service aan de linkerkant op de knop 'Display' en kies voor 'Dimensions' of 'Graph'. Dan zie je Gezelle letterlijk als een spin in het web van zijn connecties!
